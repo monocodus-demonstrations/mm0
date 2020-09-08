@@ -1,0 +1,96 @@
+name:                mm0-hs
+version:             0.1.0.0
+github:              "digama0/mm0"
+license:             PublicDomain
+author:              "Mario Carneiro"
+maintainer:          "di.gama@gmail.com"
+copyright:           "2019 Mario Carneiro"
+
+extra-source-files:
+- README.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/githubuser/mm0-hs#readme>
+
+dependencies:
+- base >= 4.7
+- mtl
+- binary
+- array
+- dynamic-mvector
+- data-default
+- utf8-string
+- bytestring
+- containers
+- transformers
+- split
+- megaparsec
+- prettyprinter
+- filepath
+- word8
+- text
+- text-builder
+- vector
+- vector-algorithms
+- async
+- async-pool
+- stm
+- hashable
+- data-reify
+- tasty
+- tasty-hunit
+# for the server (TODO: move to separate project)
+- aeson
+- bytestring
+- containers
+- directory
+- filepath
+- hslogger
+- lens >= 4.15.2
+- mtl
+- network-uri
+- rope-utf16-splay >= 0.2
+- time
+- transformers
+- unordered-containers
+- haskell-lsp
+
+default-extensions:
+- FlexibleContexts
+- LambdaCase
+- OverloadedStrings
+- TupleSections
+
+build-tools:
+- alex
+- happy
+
+executables:
+  mm0-hs:
+    main:                Main.hs
+    source-dirs:
+    - src
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -Wall
+    - -O2
+
+tests:
+  mm0-hs-test:
+    main:                test.hs
+    source-dirs:
+    - test
+    - src
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -Wall
